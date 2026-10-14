@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kbeauty.internal/contracts/rabbitmq/customer-updated.schema.json",
+  "title": "customer.updated",
+  "description": "Evenement publie par kbeauty-shop (exchange kbeauty.exchange, routing key customer.updated) quand le nom ou l'email d'un client change. Consomme par kbeauty-customer-mdm, qui met a jour le golden record et le repropage aux autres systemes (sav-ticketing-php).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["eventType", "sourceUserId", "name", "email", "occurredAt"],
+  "properties": {
+    "eventType": {
+      "type": "string",
+      "const": "customer.updated"
+    },
+    "sourceUserId": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Identifiant User cote kbeauty-shop. Cle du golden record tant qu'un seul systeme produit cet evenement."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "maxLength": 255
+    },
+    "occurredAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Horodatage ISO-8601 UTC de la mise a jour."
+    }
+  }
+}

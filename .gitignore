@@ -1,0 +1,18 @@
+# binaire
+/kbeauty-customer-mdm
+
+# base locale du golden record
+/data
+
+# env
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+.idea
+
+# OS
+.DS_Store
