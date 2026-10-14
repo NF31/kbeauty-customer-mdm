@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kbeauty.internal/contracts/rabbitmq/customer-golden-record-updated.schema.json",
+  "title": "customer.golden_record.updated",
+  "description": "Evenement publie par kbeauty-customer-mdm (exchange kbeauty.exchange, routing key customer.golden_record.updated) apres mise a jour du golden record d'un client. Consomme par sav-ticketing-php, qui met a jour sa propre copie du client au lieu de ne l'ecrire qu'une fois a l'import d'un retour.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["eventType", "sourceUserId", "name", "email", "updatedAt"],
+  "properties": {
+    "eventType": {
+      "type": "string",
+      "const": "customer.golden_record.updated"
+    },
+    "sourceUserId": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Meme identifiant que customer.updated (cote kbeauty-shop) - sav-ticketing-php s'en sert deja comme cle (retour_kbeauty_id est construit sur le meme principe)."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "maxLength": 255
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Horodatage ISO-8601 UTC de la mise a jour du golden record (pas forcement identique a occurredAt de l'evenement source)."
+    }
+  }
+}
