@@ -125,3 +125,9 @@ Tests automatises : `go test ./...` (8 tests, store + contrat).
   choix deliberement simple, comme pour le consumer PHP du SAV.
 - **Production** : pas de RabbitMQ heberge aujourd'hui, ce service ne
   tourne qu'en local pour l'instant.
+
+## Développement assisté par IA
+
+Ce projet est développé avec un assistant IA (Claude Code). Je définis le périmètre,
+l'architecture et les priorités, puis je relis et teste chaque changement avant de le
+fusionner. Les commits co-écrits avec l'IA le signalent par une ligne `Co-Authored-By`.
