@@ -1,7 +1,7 @@
 # kbeauty-customer-mdm
 
 Microservice Go — golden record client (MDM, Master Data Management) pour
-l'ecosysteme [kbeauty-shop](https://github.com/NF31/kbeauty-shop).
+l'ecosysteme kbeauty-shop (depot prive).
 
 Exercice de montee en competence (preparation Master MIAGE), voir le dossier
 `docs/montee-competence` du repo principal pour le cadrage complet.
